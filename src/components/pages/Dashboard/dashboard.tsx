@@ -9,7 +9,7 @@ import {
 
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { StackParamsList } from '../../routes/app.routes';
+import { StackParamsList } from '../../../routes/app.routes';
 
 import { api } from '../../services/api';
 

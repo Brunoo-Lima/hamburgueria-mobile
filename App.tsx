@@ -3,7 +3,7 @@ import { View, StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/routes/router';
 
-import { AuthProvider } from './src/contexts/AuthContext';
+import { AuthProvider } from './src/components/contexts/AuthContext';
 
 export default function App() {
   return (

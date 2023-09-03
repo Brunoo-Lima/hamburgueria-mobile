@@ -1,8 +1,8 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import Dashboard from '../pages/Dashboard/dashboard';
-import Order from '../pages/Order/order';
+import Dashboard from '../components/pages/Dashboard/dashboard';
+import Order from '../components/pages/Order/order';
 
 export type StackParamsList = {
   Dashboard: undefined;
