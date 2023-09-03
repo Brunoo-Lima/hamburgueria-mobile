@@ -11,6 +11,8 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StackParamsList } from '../../routes/app.routes';
 
+import { api } from '../../services/api';
+
 export default function Dashboard() {
   const navigation =
     useNavigation<NativeStackNavigationProp<StackParamsList>>();
@@ -19,10 +21,15 @@ export default function Dashboard() {
   async function openOrder() {
     if (number === '') return;
 
+    const response = await api.post('/order', {
+      table: Number(number),
+    });
+
     navigation.navigate('Order', {
       number: number,
-      order_id: '6835d43b-5d9b-43f0-9f7e-377fa2d0caca',
+      order_id: response.data.id,
     });
+    setNumber('');
   }
   return (
     <SafeAreaView style={styles.container}>
