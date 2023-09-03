@@ -3,13 +3,29 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
+import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
+
+type RouteDetailParams = {
+  FinishOrder: {
+    number: string | number;
+    order_id: string;
+  };
+};
+
+type FinishOrderRouteProp = RouteProp<RouteDetailParams, 'FinishOrder'>;
+
 export default function FinishOrder() {
+  const route = useRoute<FinishOrderRouteProp>();
+
+  async function handleFinish() {
+    alert('test');
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.alert}>Você deseja finalizar esse pedido?</Text>
-      <Text style={styles.titleTable}>Mesa{}</Text>
+      <Text style={styles.titleTable}>Mesa {route.params?.number}</Text>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handleFinish}>
         <Text style={styles.textBtn}>Finalizar pedido</Text>
         <Feather name="shopping-cart" size={20} color="#01080E" />
       </TouchableOpacity>
