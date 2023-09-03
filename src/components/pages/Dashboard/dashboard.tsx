@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Text,
   SafeAreaView,
@@ -13,10 +13,14 @@ import { StackParamsList } from '../../../routes/app.routes';
 
 import { api } from '../../services/api';
 
+import { MaterialIcons } from '@expo/vector-icons';
+import { AuthContext } from '../../contexts/AuthContext';
+
 export default function Dashboard() {
   const navigation =
     useNavigation<NativeStackNavigationProp<StackParamsList>>();
   const [number, setNumber] = useState('');
+  const { signOut } = useContext(AuthContext);
 
   async function openOrder() {
     if (number === '') return;
@@ -46,6 +50,10 @@ export default function Dashboard() {
 
       <TouchableOpacity style={styles.button} onPress={openOrder}>
         <Text style={styles.buttonText}>Abrir mesa</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.signOut} onPress={signOut}>
+        <MaterialIcons name="logout" size={28} color="#ffffff" />
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -88,5 +96,17 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     color: '#1e1e1e',
+  },
+  signOut: {
+    position: 'absolute',
+    backgroundColor: '#1472E5',
+    height: 50,
+    width: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    right: 30,
+    bottom: 30,
+    paddingHorizontal: 8,
+    borderRadius: 50,
   },
 });
