@@ -1,4 +1,4 @@
-# Sistema de pedidos de uma Hamburgueria - Mobile
+<h1 align="center"> Sistema de pedidos de uma Hamburgueria </h1>
 
 Aplicação mobile :iphone:
 
