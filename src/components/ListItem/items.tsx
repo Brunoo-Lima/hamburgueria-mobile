@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { styles } from './styles';
 
 import { Feather } from '@expo/vector-icons';
 
@@ -30,22 +31,3 @@ export function ListItem({ data, deleteItem }: ItemProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#1D3056',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    paddingVertical: 12,
-    paddingHorizontal: 12,
-    marginBottom: 12,
-    borderRadius: 4,
-    borderWidth: 0.3,
-    borderColor: '#D7F9FF',
-  },
-  items: {
-    color: '#fff',
-  },
-});
